@@ -175,9 +175,12 @@ Coloriz is *built entirely on top of Chalk*. It doesn't replace it — it simpli
 
 ---
 
-## Github
+## ⚡ Github
 
 --> [GitHub repository](https://github.com/Oignontom8283/coloriz)
+
+## 📌 ChangeLog
+--> [Changelog](./CHANGELOG.txt)
 
 ## 📄 License
 

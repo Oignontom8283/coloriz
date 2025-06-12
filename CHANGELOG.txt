@@ -1,0 +1,15 @@
+
+v1.1.0
+- Fix `bld` propertie returnin `undefined` when used.
+
+- Change `clear` propertie to `clearANSI` propertie.
+
+- Add `rgb` method to global String prototype.
+- Add `hex` method to global String prototype.
+- Add `ansi256` method to global String prototype.
+- Add `bgRgb` method to global String prototype.
+- Add `bgHex` method to global String prototype.
+- Add `bgAnsi256` method to global String prototype.
+
+v1.1.1
+- Add CHANGELOG.txt file.
