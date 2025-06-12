@@ -1,0 +1,35 @@
+{
+  "name": "coloriz",
+  "version": "1.0.0",
+  "description": "Extensions de String pour styliser du texte avec Chalk",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oignontom8283/coloriz.git"
+  },
+  "keywords": [
+    "chalk",
+    "string",
+    "typescript",
+    "extensions",
+    "colors"
+  ],
+  "author": "Oignontom8a283",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Oignontom8283/coloriz/issues"
+  },
+  "homepage": "https://github.com/Oignontom8283/coloriz#readme",
+  "dependencies": {
+    "chalk": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.1",
+    "tsc": "^2.0.4",
+    "tsx": "^4.20.1",
+    "typescript": "^5.8.3"
+  }
+}
