@@ -1,13 +1,12 @@
 import chalk from "chalk"
 import { clearANSI } from "./utils"
 
-// List of text styles
+// Text styles Map (not including bold, which is aliased to bld)
 const textStyles = [
-  "reset", "bld", "dim", "italic", "underline", "inverse", "hidden", "strikethrough"
+  "reset", "dim", "italic", "underline", "inverse", "hidden", "strikethrough"
 ] as const
 
-// Legacy colors are the standard 16/32 colors supported by most terminals.
-// They are widely used and recognized in terminal applications.
+// Text colors Map
 const colors = [
   "black",    // legacy color (black)
   "red",      // legacy color (red)
@@ -19,7 +18,7 @@ const colors = [
   "white",    // legacy color (white)
   "gray",     // legacy color (bright black / grey)
 
-  // EN: Bright colors, also widely supported on modern terminals but also legacy
+  // Bright text colors. (Also widely supported on modern terminals but also legacy)
   "redBright",
   "greenBright",
   "yellowBright",
@@ -29,7 +28,7 @@ const colors = [
   "whiteBright"
 ] as const
 
-// 3. Couleurs de fond, même principe que couleurs classiques
+// Background colors Map
 const bgColors = [
   "bgBlack",    // legacy background color
   "bgRed",      // legacy background color
@@ -40,7 +39,8 @@ const bgColors = [
   "bgCyan",     // legacy background color
   "bgWhite",    // legacy background color
 
-  "bgBlackBright",   // bright background colors
+  // bright background colors
+  "bgBlackBright",   
   "bgRedBright",
   "bgGreenBright",
   "bgYellowBright",
@@ -50,11 +50,7 @@ const bgColors = [
   "bgWhiteBright"
 ] as const
 
-type TextStyle = typeof textStyles[number]
-type Color = typeof colors[number]
-type BgColor = typeof bgColors[number]
-
-// EN: Typescript global declaration
+// Typescript global declaration
 declare global {
   interface String {
     // Text styles
@@ -108,7 +104,17 @@ declare global {
     bgWhiteBright: string
 
     // Clear ANSI codes from string
-    clear: string
+    clearANSI: string
+
+    // Methods
+    rgb: (red:number, green:number, blue:number) => string,
+    hex: (hexColor:`#${string}`) => string,
+    ansi256: (index:number) => string,
+
+    bgRgb: (red:number, green:number, blue:number) => string,
+    bgHex: (hexColor:`#${string}`) => string,
+    bgAnsi256: (index:number) => string,
+
   }
 }
 
@@ -165,7 +171,7 @@ const chalkMap: Record<string, (text: string) => string> = {
   bgWhiteBright: chalk.bgWhiteBright,
 }
 
-// Ajout des propriétés au prototype de String
+// Add propperties to String global prototype
 for (const key in chalkMap) {
   Object.defineProperty(String.prototype, key, {
     get() {
@@ -176,8 +182,67 @@ for (const key in chalkMap) {
   })
 }
 
-// Ajout de .clear sur String.prototype
-Object.defineProperty(String.prototype, "clear", {
+
+// Define other methods for RGB, HEX, and ANSI256
+
+// Define bold method on String prototype
+Object.defineProperty(String.prototype, "bld", { 
+  get() {
+    return chalk.bold(this.toString())
+  },
+  configurable: true,
+  enumerable: false
+})
+
+// For text colors
+Object.defineProperty(String.prototype, "rgb", { // Method for RGB text color
+  value(red: number, green: number, blue: number) {
+    return chalk.rgb(red, green, blue)(this.toString())
+  },
+  configurable: true,
+  enumerable: false
+})
+Object.defineProperty(String.prototype, "hex", { // Method for HEX text color
+  value(hexColor: `#${string}`) {
+    return chalk.hex(hexColor)(this.toString())
+  },
+  configurable: true,
+  enumerable: false
+})
+Object.defineProperty(String.prototype, "ansi256", { // Method for ANSI 256 text color
+  value(index: number) {
+    return chalk.ansi256(index)(this.toString())
+  },
+  configurable: true,
+  enumerable: false
+})
+
+// For background colors
+Object.defineProperty(String.prototype, "bgRgb", { // Method for RGB background color
+  value(red: number, green: number, blue: number) {
+    return chalk.bgRgb(red, green, blue)(this.toString())
+  },
+  configurable: true,
+  enumerable: false
+})
+Object.defineProperty(String.prototype, "bgHex", { // Method for HEX background color
+  value(hexColor: `#${string}`) {
+    return chalk.bgHex(hexColor)(this.toString())
+  },
+  configurable: true,
+  enumerable: false
+})
+Object.defineProperty(String.prototype, "bgAnsi256", { // Method for ANSI 256 background color
+  value(index: number) {
+    return chalk.bgAnsi256(index)(this.toString())
+  },
+  configurable: true,
+  enumerable: false
+})
+
+
+// Define clearANSI method on String prototype
+Object.defineProperty(String.prototype, "clearANSI", {
   get() {
     return clearANSI(this.toString())
   },
