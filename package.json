@@ -4,7 +4,8 @@
   "description": "String Extensions for Styling Text with Chalk",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "publish": "npm publish --access public"
   },
   "repository": {
     "type": "git",
