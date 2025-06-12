@@ -6,7 +6,7 @@ Instead of calling functions like `chalk.red("text")`, you can now simply write 
 
 > ❗ **Note:** Coloriz is *not* a replacement for Chalk — it uses Chalk under the hood. It's a syntactic enhancement, not a standalone coloring engine.
 
----
+
 
 ## ✨ Features
 
@@ -21,7 +21,7 @@ Instead of calling functions like `chalk.red("text")`, you can now simply write 
 - Zero configuration — import once and use everywhere
 - Works in both JavaScript and TypeScript
 
----
+
 
 ## 🚀 Installation
 
@@ -29,9 +29,9 @@ Instead of calling functions like `chalk.red("text")`, you can now simply write 
 npm install coloriz
 ```
 
-> Requires Node.js v16+ and ESM support
+> Requires Node.js v16+
 
----
+
 
 ## 📦 Usage
 
@@ -83,7 +83,7 @@ console.log("Custom Background Ansi256".bgAnsi256(45));
 console.log("Clear ANSI".clearANSI);
 ```
 
----
+
 
 ## 🎨 Available Properties
 
@@ -100,7 +100,7 @@ console.log("Clear ANSI".clearANSI);
 | `hidden`        | Hidden                         |
 | `strikethrough` | Strike-through                 |
 
----
+
 
 ### 🎨 Text Colors
 
@@ -116,7 +116,7 @@ console.log("Clear ANSI".clearANSI);
 | `white`     | `whiteBright`    |
 | `gray`      | *(bright black)* |
 
----
+
 
 ### 🎨 Background Colors
 
@@ -131,7 +131,7 @@ console.log("Clear ANSI".clearANSI);
 | `bgCyan`    | `bgCyanBright`    |
 | `bgWhite`   | `bgWhiteBright`   |
 
----
+
 
 ### 🎨 Custom Color Functions
 
@@ -144,7 +144,7 @@ You can also use functions to apply custom colors:
 | `.hex("#RRGGBB")`| `"hi".hex("#ffcc00")`                      |
 | `.ansi256(n)`    | `"good bye".ansi256(45)`                   |
 
----
+
 
 ### 🧹 Utility
 
@@ -152,7 +152,7 @@ You can also use functions to apply custom colors:
 |----------|------------------------------------------------|
 | `.clearANSI` | String property to strip ANSI codes            |
 
----
+
 
 ## 🧠 Notes
 
@@ -160,7 +160,7 @@ You can also use functions to apply custom colors:
 - Designed for CLI tools, custom loggers, and developer UX
 - Extensions are non-enumerable and do not pollute object iteration
 
----
+
 
 ## 🛠 Why Not Just Use Chalk?
 
@@ -173,7 +173,7 @@ Coloriz is *built entirely on top of Chalk*. It doesn't replace it — it simpli
 | `chalk.bold.green("Ok")`   | `"Ok".green.bld`        |
 | `chalk.hex("#f00")("Hi")`  | `"Hi".hex("#f00")`      |
 
----
+
 
 ## ⚡ Github
 
