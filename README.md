@@ -17,7 +17,7 @@ Instead of calling functions like `chalk.red("text")`, you can now simply write 
   - Bright and background variants
   - Text styles (bold, italic, underline, etc.)
   - Additional utility functions: `.rgb()`, `.hex()`, `.ansi256()`
-  - `.clear` property.
+  - `.clearANSI` property.
 - Zero configuration — import once and use everywhere
 - Works in both JavaScript and TypeScript
 
@@ -35,7 +35,7 @@ npm install coloriz
 
 ## 📦 Usage
 
-### JavaScript ❤️
+### JavaScript
 
 ```js
 require("coloriz");
@@ -59,7 +59,7 @@ console.log("Custom Background Ansi256".bgAnsi256(45));
 console.log("Clear ANSI".clearANSI);
 ```
 
-### TypeScript
+### TypeScript ❤️
 
 ```ts
 import "coloriz";
