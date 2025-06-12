@@ -44,10 +44,19 @@ console.log("Hello".green);
 console.log("Info".bgCyan.italic);
 console.log("Error".red.underline);
 console.log("Debug".bgBlackBright.dim);
-console.log("Custom Color".rgb(128, 0, 128)("Purple Text"));
-console.log("Custom Hex".hex("#ff5733")("Hex Color"));
-console.log("Ansi256".ansi256(123)("Ansi256 Color"));
-console.log("Clear ANSI".clear("This will be plain text"));
+
+// Custom text colros
+console.log("Custom Color".rgb(128, 0, 128));
+console.log("Custom Hex".hex("#ff5733"));
+console.log("Ansi256".ansi256(45));
+
+// Custom background colors
+console.log("Custom Background color".bgRgb(128, 0, 128));
+console.log("Custom Background Hex".bgHex("#ff5733"));
+console.log("Custom Background Ansi256".bgAnsi256(45));
+
+// Clear ANSI codes (ex: for writing in file)
+console.log("Clear ANSI".clearANSI);
 ```
 
 ### TypeScript
@@ -59,10 +68,19 @@ console.log("Hello".green);
 console.log("Info".bgCyan.italic);
 console.log("Error".red.underline);
 console.log("Debug".bgBlackBright.dim);
-console.log("Custom Color".rgb(128, 0, 128)("Purple Text"));
-console.log("Custom Hex".hex("#ff5733")("Hex Color"));
-console.log("Ansi256".ansi256(123)("Ansi256 Color"));
-console.log("Clear ANSI".clear("This will be plain text"));
+
+// Custom text colros
+console.log("Custom Color".rgb(128, 0, 128));
+console.log("Custom Hex".hex("#ff5733"));
+console.log("Ansi256".ansi256(45));
+
+// Custom background colors
+console.log("Custom Background color".bgRgb(128, 0, 128));
+console.log("Custom Background Hex".bgHex("#ff5733"));
+console.log("Custom Background Ansi256".bgAnsi256(45));
+
+// Clear ANSI codes (ex: for writing in file)
+console.log("Clear ANSI".clearANSI);
 ```
 
 ---
@@ -84,25 +102,25 @@ console.log("Clear ANSI".clear("This will be plain text"));
 
 ---
 
-### 🎨 Text Colors (Legacy 16/32 ANSI)
+### 🎨 Text Colors
 
-| Color     | Bright Variant   |
-| --------- | ---------------- |
-| `black`   |                  |
-| `red`     | `redBright`      |
-| `green`   | `greenBright`    |
-| `yellow`  | `yellowBright`   |
-| `blue`    | `blueBright`     |
-| `magenta` | `magentaBright`  |
-| `cyan`    | `cyanBright`     |
-| `white`   | `whiteBright`    |
-| `gray`    | *(bright black)* |
+| Color 16/32 | Bright Variant   |
+| ----------- | ---------------- |
+| `black`     |                  |
+| `red`       | `redBright`      |
+| `green`     | `greenBright`    |
+| `yellow`    | `yellowBright`   |
+| `blue`      | `blueBright`     |
+| `magenta`   | `magentaBright`  |
+| `cyan`      | `cyanBright`     |
+| `white`     | `whiteBright`    |
+| `gray`      | *(bright black)* |
 
 ---
 
 ### 🎨 Background Colors
 
-| Color       | Bright Variant    |
+| Color 16/32 | Bright Variant    |
 | ----------- | ----------------- |
 | `bgBlack`   | `bgBlackBright`   |
 | `bgRed`     | `bgRedBright`     |
@@ -119,11 +137,12 @@ console.log("Clear ANSI".clear("This will be plain text"));
 
 You can also use functions to apply custom colors:
 
+#### Text colors
 | Function        | Example usage                               |
 |----------------|----------------------------------------------|
-| `.rgb(r, g, b)`  | `rgb(255, 0, 128)("Text")`                  |
-| `.hex("#RRGGBB")`| `hex("#ffcc00")("Warning!")`                |
-| `.ansi256(n)`    | `ansi256(45)("Terminal Color 45")`          |
+| `.rgb(r, g, b)`  | `"hello".rgb(255, 0, 128)`                 |
+| `.hex("#RRGGBB")`| `"hi".hex("#ffcc00")`                      |
+| `.ansi256(n)`    | `"good bye".ansi256(45)`                   |
 
 ---
 
@@ -131,7 +150,7 @@ You can also use functions to apply custom colors:
 
 | Name     | Description                                    |
 |----------|------------------------------------------------|
-| `.clear` | String property to strip ANSI codes            |
+| `.clearANSI` | String property to strip ANSI codes            |
 
 ---
 
@@ -152,7 +171,7 @@ Coloriz is *built entirely on top of Chalk*. It doesn't replace it — it simpli
 |----------------------------|-------------------------|
 | `chalk.red("Hi")`          | `"Hi".red`              |
 | `chalk.bold.green("Ok")`   | `"Ok".green.bld`        |
-| `chalk.hex("#f00")("Hi")`  | `hex("#f00")("Hi")`     |
+| `chalk.hex("#f00")("Hi")`  | `"Hi".hex("#f00")`      |
 
 ---
 
