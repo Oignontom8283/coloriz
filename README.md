@@ -16,8 +16,8 @@ Instead of calling functions like `chalk.red("text")`, you can now simply write 
   - Legacy ANSI colors (16/32 colors)
   - Bright and background variants
   - Text styles (bold, italic, underline, etc.)
-  - Additional utility functions: `rgb()`, `hex()`, `ansi256()`
-  - `.clear` property **and** `clear(text)` function to strip ANSI codes
+  - Additional utility functions: `.rgb()`, `.hex()`, `.ansi256()`
+  - `.clear` property.
 - Zero configuration — import once and use everywhere
 - Works in both JavaScript and TypeScript
 
@@ -27,15 +27,6 @@ Instead of calling functions like `chalk.red("text")`, you can now simply write 
 
 ```bash
 npm install coloriz
-```
-```bash
-yarn add coloriz
-```
-```bash
-pnpm add coloriz
-```
-```bash
-bun add coloriz
 ```
 
 > Requires Node.js v16+ and ESM support

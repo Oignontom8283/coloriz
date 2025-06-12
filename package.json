@@ -1,6 +1,6 @@
 {
   "name": "coloriz",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Extensions de String pour styliser du texte avec Chalk",
   "main": "dist/index.js",
   "scripts": {
