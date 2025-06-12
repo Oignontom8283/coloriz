@@ -17,6 +17,12 @@
     "extensions",
     "colors"
   ],
+  "type": "commonjs",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "author": "Oignontom8a283",
   "license": "MIT",
   "bugs": {
