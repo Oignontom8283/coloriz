@@ -6,7 +6,7 @@ Instead of calling functions like `chalk.red("text")`, you can now simply write 
 
 > ❗ **Note:** Coloriz is *not* a replacement for Chalk — it uses Chalk under the hood. It's a syntactic enhancement, not a standalone coloring engine.
 
-
+![Illustration](./doc/images/illustration0.png)
 
 ## ✨ Features
 
