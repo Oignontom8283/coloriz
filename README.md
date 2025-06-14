@@ -16,9 +16,9 @@ Instead of calling functions like `chalk.red("text")`, you can now simply write 
   - Legacy ANSI colors (16/32 colors)
   - Bright and background variants
   - Text styles (bold, italic, underline, etc.)
-  - Additional utility functions: `.rgb()`, `.hex()`, `.ansi256()`
-  - `.clearANSI` property.
+  - Additional utility functions: `.rgb()`, `.hex()`, `.ansi256()`, `.clearANSI`, `.transform()` property.
 - Zero configuration — import once and use everywhere
+- Retrieve the chalk instance (useful for retrieving methods and properties. **No install `chalk`**)
 - Works in both JavaScript and TypeScript
 
 
@@ -56,7 +56,16 @@ console.log("Custom Background Hex".bgHex("#ff5733"));
 console.log("Custom Background Ansi256".bgAnsi256(45));
 
 // Clear ANSI codes (ex: for writing in file)
-console.log("Clear ANSI".clearANSI);
+console.log("Clear ANSI".green.clearANSI);
+
+// transform function
+const condition = true;
+console.log(
+  "Hello, World!".transform(s => condition ? s.green : s.red)
+)
+
+// Retrieve the chalk instance
+const chalk = "".chalk;
 ```
 
 ### TypeScript ❤️
@@ -80,7 +89,16 @@ console.log("Custom Background Hex".bgHex("#ff5733"));
 console.log("Custom Background Ansi256".bgAnsi256(45));
 
 // Clear ANSI codes (ex: for writing in file)
-console.log("Clear ANSI".clearANSI);
+console.log("Clear ANSI".green.clearANSI);
+
+// transform function
+const condition = true;
+console.log(
+  "Hello, World!".transform(s => condition ? s.green : s.red)
+)
+
+// Retrieve the chalk instance
+const chalk = "".chalk;
 ```
 
 
@@ -155,11 +173,11 @@ You can also use functions to apply custom colors:
 
 ### 🧹 Utility
 
-| Name     | Description                                    |
-|----------|------------------------------------------------|
-| `.clearANSI` | String property to strip ANSI codes            |
-
-
+| Name             | Description                                   |
+|------------------|-----------------------------------------------|
+| `.clearANSI`     | String property to strip ANSI codes           |
+| `.transform(fn)` | Apply a transformation function to the string |
+| `.chalk`         | Retrieve the underlying Chalk instance        |
 
 ## 🧠 Notes
 
@@ -167,9 +185,16 @@ You can also use functions to apply custom colors:
 - Designed for CLI tools, custom loggers, and developer UX
 - Extensions are non-enumerable and do not pollute object iteration
 
+## 🛠️ Advanced Usag
 
+If you need to access the underlying Chalk instance, you can do so by extracting it from `.chalk` to a string.
 
-## 🛠 Why Not Just Use Chalk?
+```js
+const chalk = "".chalk;
+```
+> This allows you to use all Chalk methods and properties directly, without needing to install Chalk separately.
+
+## 🦺 Why Not Just Use Chalk?
 
 You still are!  
 Coloriz is *built entirely on top of Chalk*. It doesn't replace it — it simplifies how you use it.

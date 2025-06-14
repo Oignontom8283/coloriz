@@ -14,5 +14,11 @@ v1.1.0
 v1.1.1
 - Add CHANGELOG.txt file.
 
-v1.1.2 and v1.1.3
+v1.1.2 - v1.1.5
 - Fix README 🫣.
+
+v1.2.0
+- Add `chalk` instance to the global string.
+- Add `transform` method to the global string prototype.
+- Add methode and properties description.
+- Add documentation for `.transform` and `.chalk` in README.md.
