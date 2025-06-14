@@ -104,16 +104,39 @@ declare global {
     bgWhiteBright: string
 
     // Clear ANSI codes from string
+    /** Remove all ANSI codes from the string. (Useful for writing to files or logs) */
     clearANSI: string
 
+    /** Chalk instance for advanced usage */
+    chalk: typeof chalk, // Chalk instance
+
     // Methods
+    /** Transform the string to a specific RGB color */
     rgb: (red:number, green:number, blue:number) => string,
+    /** Transform the string to a specific HEX color */
     hex: (hexColor:`#${string}`) => string,
+    /** Transform the string to a specific ANSI 256 color */
     ansi256: (index:number) => string,
 
+    /** Transform the background color of the string to a specific RGB color */
     bgRgb: (red:number, green:number, blue:number) => string,
+    /** Transform the background color of the string to a specific HEX color */
     bgHex: (hexColor:`#${string}`) => string,
+    /** Transform the background color of the string to a specific [ANSI 256](https://gist.github.com/JBlond/2fea43a3049b38287e5e9cefc87b2124) color */
     bgAnsi256: (index:number) => string,
+
+    /**
+     * Transform the string using a custom transformer function.
+     * ```js
+     * const condition = true;
+     * console.log(
+     *     "Hello, World!".transform(s => condition ? s.green : s.red)
+     * )
+     * ```
+     * @param fn Function that takes the original string and returns a transformed string.
+     * @returns The transformed string.
+     */
+    transform: (fn:(s:string) => string) => string,
 
   }
 }
@@ -185,10 +208,17 @@ for (const key in chalkMap) {
 
 // Define other methods for RGB, HEX, and ANSI256
 
-// Define bold method on String prototype
-Object.defineProperty(String.prototype, "bld", { 
+// Define other properties on String prototype
+Object.defineProperty(String.prototype, "bld", {  // Define bold propertie on String prototype
   get() {
     return chalk.bold(this.toString())
+  },
+  configurable: true,
+  enumerable: false
+})
+Object.defineProperty(String.prototype, "chalk", { // Define chalk propertie on String prototye
+  get() {
+    return chalk
   },
   configurable: true,
   enumerable: false
@@ -250,4 +280,10 @@ Object.defineProperty(String.prototype, "clearANSI", {
   enumerable: false,
 })
 
-export { chalk }
+Object.defineProperty(String.prototype, "transform", {
+  value(fn: (s: string) => string) {
+    return fn(this.toString())
+  },
+  configurable: true,
+  enumerable: false,
+})
