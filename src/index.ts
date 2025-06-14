@@ -249,3 +249,5 @@ Object.defineProperty(String.prototype, "clearANSI", {
   configurable: true,
   enumerable: false,
 })
+
+export { chalk }
