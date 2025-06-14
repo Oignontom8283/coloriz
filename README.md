@@ -29,7 +29,7 @@ Instead of calling functions like `chalk.red("text")`, you can now simply write 
 npm install coloriz
 ```
 
-> Requires Node.js v16+
+> ⚠️ Requires Node.js v16+
 
 
 
@@ -143,6 +143,13 @@ You can also use functions to apply custom colors:
 | `.rgb(r, g, b)`  | `"hello".rgb(255, 0, 128)`                 |
 | `.hex("#RRGGBB")`| `"hi".hex("#ffcc00")`                      |
 | `.ansi256(n)`    | `"good bye".ansi256(45)`                   |
+
+#### Background colors
+| Function        | Example usage                               |
+|----------------|----------------------------------------------|
+| `.bgRgb(r, g, b)`  | `"hello".bgRgb(255, 0, 128)`             |
+| `.bgHex("#RRGGBB")`| `"hi".bgHex("#ffcc00")`                  |
+| `.bgAnsi256(n)`    | `"good bye".bgAnsi256(45)`               |
 
 
 
