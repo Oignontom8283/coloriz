@@ -1,6 +1,6 @@
 # Coloriz
 
-**[Coloriz](https://github.com/Oignontom8283/coloriz)** is a lightweight extension of [Chalk](https://www.npmjs.com/package/chalk) that enhances the `String` prototype to make styling terminal output more intuitive and expressive.
+**[Coloriz](https://www.npmjs.com/package/coloriz)** is a lightweight extension of [Chalk](https://www.npmjs.com/package/chalk) that enhances the `String` prototype to make styling terminal output more intuitive and expressive.
 
 Instead of calling functions like `chalk.red("text")`, you can now simply write `"text".red` or `"text".bld.bgYellowBright`.
 
