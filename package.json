@@ -1,6 +1,6 @@
 {
   "name": "coloriz",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "String Extensions for Styling Text with Chalk",
   "main": "dist/index.js",
   "engines": {
@@ -9,7 +9,7 @@
   "scripts": {
     "build": "tsc",
     "pub": "npm run build && npm publish --access public",
-    "pac": "npm run build && npm pack" 
+    "pac": "npm run build && npm pack"
   },
   "repository": {
     "type": "git",
