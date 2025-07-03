@@ -3,6 +3,9 @@
   "version": "1.2.0",
   "description": "String Extensions for Styling Text with Chalk",
   "main": "dist/index.js",
+  "engines": {
+    "node": ">=20.19.3"
+  },
   "scripts": {
     "build": "tsc",
     "pub": "npm run build && npm publish --access public",

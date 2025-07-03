@@ -22,3 +22,8 @@ v1.2.0
 - Add `transform` method to the global string prototype.
 - Add methode and properties descriptions.
 - Add documentation for `.transform` and `.chalk` in README.md.
+
+v1.2.1
+- Fix `package.json` for add NodeJS recommended version.
+
+- Add `.nvmrc` file for NodeJS version management.
